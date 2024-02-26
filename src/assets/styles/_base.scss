@@ -24,3 +24,8 @@ ul {
 img {
     max-width: 100%;
 }
+
+::placeholder, input {
+    font-family: var(--font-family);
+}
+
