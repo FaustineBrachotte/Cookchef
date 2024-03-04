@@ -1,16 +1,16 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Content from './components/Content'
-import styles from './App.module.scss'
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Homepage from './pages/Homepage/Homepage';
+import styles from './App.module.scss';
 
 function App() {
-  return (
-    <div className={`d-flex flex-column ${styles.appContainer}`}>
-      <Header />  
-      <Content />
-      <Footer />  
-    </div>
-  )
+	return (
+		<div className={`d-flex flex-column ${styles.appContainer}`}>
+			<Header />
+			<Homepage />
+			<Footer />
+		</div>
+	);
 }
 
-export default App
+export default App;
