@@ -92,7 +92,9 @@ function Homepage() {
 								setPage(page + 1);
 							}
 						}}
-						className='btn btn-primary'
+						className={`btn ${
+							hasMoreRecipes ? 'btn-primary' : 'btn-disabled'
+						}`}
 						disabled={!hasMoreRecipes}
 					>
 						Charger plus de recettes
