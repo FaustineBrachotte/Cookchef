@@ -19,10 +19,6 @@ function Homepage() {
 				if (response.ok && !cancel) {
 					const recipes = await response.json();
 					setRecipes(Array.isArray(recipes) ? recipes : [recipes]);
-				} else {
-					console.error(
-						`Erreur lors de la requête : ${response.status} ${response.statusText}`
-					);
 				}
 			} catch (error) {
 				console.error("Une erreur s'est produite :", error);
@@ -39,6 +35,12 @@ function Homepage() {
 	function handleInput(e) {
 		const filter = e.target.value;
 		setFilter(filter.trim().toLowerCase());
+	}
+
+	function updateRecipe(updatedRecipe) {
+		setRecipes(
+			recipes.map((r) => (r._id === updatedRecipe._id ? updatedRecipe : r))
+		);
 	}
 
 	return (
@@ -65,7 +67,11 @@ function Homepage() {
 						{recipes
 							.filter((r) => r.title.toLowerCase().startsWith(filter))
 							.map((r) => (
-								<Recipe title={r.title} image={r.image} key={r._id} />
+								<Recipe
+									key={r._id}
+									recipe={r}
+									toggleLikedRecipe={updateRecipe}
+								/>
 							))}
 					</div>
 				)}
