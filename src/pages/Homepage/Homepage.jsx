@@ -3,6 +3,7 @@ import Recipe from './components/Recipe/Recipe';
 import Loader from '../../components/Loader/Loader';
 import { useState, useEffect, useContext } from 'react';
 import { ApiContext } from '../../context/ApiContext';
+import Search from './components/Search/Search';
 
 function Homepage() {
 	const [recipes, setRecipes] = useState([]);
@@ -40,11 +41,6 @@ function Homepage() {
 		return () => (cancel = true);
 	}, [BASE_URL_API, page]);
 
-	function handleInput(e) {
-		const filter = e.target.value;
-		setFilter(filter.trim().toLowerCase());
-	}
-
 	function updateRecipe(updatedRecipe) {
 		setRecipes(
 			recipes.map((r) => (r._id === updatedRecipe._id ? updatedRecipe : r))
@@ -53,23 +49,11 @@ function Homepage() {
 
 	return (
 		<div className='flex-fill container d-flex flex-column p-20'>
-			<h1 className='my-30'>
-				Découvrez nos nouvelles recettes <small>{recipes.length}</small>
-			</h1>
+			<h1 className='my-30'>Découvrez nos nouvelles recettes</h1>
 			<div
 				className={`${styles.contentCard} card d-flex flex-column flex-fill p-20 mb-20`}
 			>
-				<div
-					className={`${styles.searchBar} d-flex flex-row align-items my-30`}
-				>
-					<i className='fa-solid fa-magnifying-glass mr-15'></i>
-					<input
-						onInput={handleInput}
-						className='flex-fill'
-						type='text'
-						placeholder='Rechercher'
-					/>
-				</div>
+				<Search filter={filter} setFilter={setFilter} />
 				{isLoading && !recipes.length ? (
 					<Loader />
 				) : (
