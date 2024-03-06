@@ -22,6 +22,10 @@ function Homepage() {
 		);
 	}
 
+	function deleteRecipe(_id) {
+		setRecipes(recipes.filter((r) => r._id !== _id));
+	}
+
 	return (
 		<div className='flex-fill container d-flex flex-column p-20'>
 			<h1 className='my-30'>Découvrez nos nouvelles recettes</h1>
@@ -39,6 +43,7 @@ function Homepage() {
 								<Recipe
 									key={r._id}
 									recipe={r}
+									deleteRecipe={deleteRecipe}
 									toggleLikedRecipe={updateRecipe}
 								/>
 							))}
