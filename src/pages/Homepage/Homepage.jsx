@@ -1,45 +1,20 @@
 import styles from './Homepage.module.scss';
 import Recipe from './components/Recipe/Recipe';
 import Loader from '../../components/Loader/Loader';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { ApiContext } from '../../context/ApiContext';
 import Search from './components/Search/Search';
+import { useFetchData } from '../../hooks/useFetchData';
 
 function Homepage() {
-	const [recipes, setRecipes] = useState([]);
-	const [isLoading, setisLoading] = useState(true);
 	const [page, setPage] = useState(1);
 	const [filter, setFilter] = useState('');
-	const [hasMoreRecipes, setHasMoreRecipes] = useState(true);
 	const BASE_URL_API = useContext(ApiContext);
 
-	useEffect(() => {
-		let cancel = false;
-		async function getRecipes() {
-			try {
-				setisLoading(true);
-				const response = await fetch(
-					`${BASE_URL_API}?skip=${(page - 1) * 6}&limit=6`
-				);
-				if (response.ok && !cancel) {
-					const newRecipes = await response.json();
-					if (Array.isArray(newRecipes) && newRecipes.length > 0) {
-						setRecipes((x) => [...x, ...newRecipes]);
-					} else {
-						setHasMoreRecipes(false);
-					}
-				}
-			} catch (error) {
-				console.error("Une erreur s'est produite :", error);
-			} finally {
-				if (!cancel) {
-					setisLoading(false);
-				}
-			}
-		}
-		getRecipes();
-		return () => (cancel = true);
-	}, [BASE_URL_API, page]);
+	const [[recipes, setRecipes], [hasMoreRecipes], isLoading] = useFetchData(
+		BASE_URL_API,
+		page
+	);
 
 	function updateRecipe(updatedRecipe) {
 		setRecipes(
