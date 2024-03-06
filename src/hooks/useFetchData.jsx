@@ -14,7 +14,7 @@ export function useFetchData(url, page) {
 				let queries = '';
 
 				if (page) {
-					queries += `?skip=${(page - 1) * 6}&limit=6`;
+					queries += `?skip=${(page - 1) * 6}&limit=6&sort=createdAt:-1`;
 				}
 				const response = await fetch(url + queries);
 				if (response.ok && !cancel) {
