@@ -44,6 +44,10 @@ export const data = [
 		image: 'https://images.unsplash.com/photo-1707448460889-e268eb742820?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGxpbmd1aW5pJTIwcGVzdG98ZW58MHwxfDB8fHww',
 	},
 	{
+		title: 'Tarte à la fraise',
+		image: 'https://images.unsplash.com/photo-1511996571461-5ea529c6d9d7?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+	},
+	{
 		title: 'Brochettes épicées',
 		image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixid=MnwxMDkyNjJ8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTY1NTMwNTgyMQ&ixlib=rb-1.2.1&w=500&h=700',
 	},
