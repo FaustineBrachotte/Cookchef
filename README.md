@@ -1,8 +1,6 @@
-# React + Vite
+# Cookchef
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  🎓 Projet formation Dyma React18
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Demo](https://github.com/FaustineBrachotte/Cookchef/assets/105442482/718ca879-b270-4fae-9a1d-e56f10bed24b
+)
